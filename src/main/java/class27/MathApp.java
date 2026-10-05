@@ -1,5 +1,6 @@
 package class27;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class MathApp {
@@ -8,8 +9,39 @@ public class MathApp {
     }
 
     private static void math() {
-        menu();
-        int choose = getOption();
+        Scanner scanner = new Scanner(System.in);
+
+        int choose = 0;
+        do {
+            menu();
+            choose = getOption();
+
+            if (choose != 9) {
+                System.out.print("Número 1: ");
+                int num1 = scanner.nextInt();
+                System.out.print("Número 2: ");
+                int num2 = scanner.nextInt();
+
+                int result = 0;
+                Math math = new Math();
+                switch (choose) {
+                    case 1:
+                        result = math.add(num1, num2);
+                        break;
+                    case 2:
+                        result = math.subtract(num1, num2);
+                        break;
+                    case 3:
+                        result = math.multiply(num1, num2);
+                        break;
+                    case 4:
+                        result = (math.divide(new BigDecimal(num1),
+                                new BigDecimal(num2))).intValue();
+                }
+
+                System.out.printf("\nResultado: %d", result);
+            }
+        } while (choose != 9);
     }
 
     private static int getOption() {
@@ -29,7 +61,7 @@ public class MathApp {
     }
 
     private static void menu() {
-        System.out.println("Menu:");
+        System.out.println("\n\nMenu:");
         System.out.println("1. Somar");
         System.out.println("2. Subtrair");
         System.out.println("3. Multiplicar");
