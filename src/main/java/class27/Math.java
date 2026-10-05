@@ -4,19 +4,19 @@ import java.math.BigDecimal;
 
 public class Math {
     public int add(int num1, int num2){
-        return 0;
+        return num1 + num2;
     }
 
     public int subtract(int num1, int num2){
-        return 0;
+        return num1 - num2;
     }
 
     public int multiply( int num1, int num2){
-        return 0;
+        return num1 * num2;
     }
 
     public BigDecimal divide(BigDecimal num1,
                              BigDecimal num2){
-        return BigDecimal.ZERO;
+        return num1.divide(num2);
     }
 }
