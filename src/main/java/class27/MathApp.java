@@ -1,5 +1,7 @@
 package class27;
 
+import java.util.Scanner;
+
 public class MathApp {
     public static void main(String[] args) {
         math();
@@ -7,7 +9,23 @@ public class MathApp {
 
     private static void math() {
         menu();
+        int choose = getOption();
+    }
 
+    private static int getOption() {
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.print("\nOpção: ");
+            int choose = scanner.nextInt();
+
+            if ((choose >= 1 && choose <= 4) || choose == 9) {
+                return choose;
+            } else {
+                System.out.printf("Opção %d inválida! Digite 1,2,3,4 ou 9\n",
+                        choose);
+            }
+        }
     }
 
     private static void menu() {
